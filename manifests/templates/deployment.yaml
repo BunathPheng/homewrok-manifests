@@ -1,0 +1,24 @@
+---
+# Source: helm for kubernetes/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: homewrok
+  labels:
+    app: homewrok
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: homewrok
+  template:
+    metadata:
+      labels:
+        app: homewrok
+    spec:
+      containers:
+        - name: homewrok
+          image: docker.io/phengbunath/homewrok:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
